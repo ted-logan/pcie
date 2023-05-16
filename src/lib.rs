@@ -646,6 +646,10 @@ impl<'a> Device<'a> {
 
         None
     }
+
+    pub fn ext_cap_addr(&self, cap: &PcieExtCap) -> *mut u32 {
+        self.ops.addr(&self.bdf, cap.base_register) as *mut u32
+    }
 }
 
 // Private fns
